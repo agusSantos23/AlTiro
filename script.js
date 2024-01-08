@@ -1,25 +1,34 @@
 function start(){
     const plano = document.getElementById("plano")
     const puntuacion = document.getElementById("puntuacion")
+    const ronda = document.getElementById("numeroRonda")
 
+    let patosVivos = 0
+    let tiempoAparicion = 1000
     
-    for(let i = 0; i < 5; i++){
+    const intervalo = setInterval(() => {
 
-        setTimeout(() => {
-            
-            const nuevoPato = new Pato("Pato " + i)
+        if (patosVivos < 3) {
+
+            const nuevoPato = new Pato("Pato " + patosVivos);
             const patoVivo = nuevoPato.vida()
-            patoVivo.addEventListener("click",()=>{
 
-                nuevoPato.muerte(puntuacion);
+            patoVivo.addEventListener("click", () => {
+                nuevoPato.muerte(puntuacion)
+                patosVivos--
+            });
 
-            })
             plano.appendChild(patoVivo)
+            patosVivos++
 
+        } else {
+            
+            clearInterval(intervalo)
+        }
 
-        }, 1000 * (i + 1));
+    }, tiempoAparicion);
+    
 
-    }
 }
 
 class Pato{

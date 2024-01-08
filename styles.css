@@ -1,0 +1,58 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    background-color: rgb(78, 78, 78);
+}
+
+
+h1,h3{
+    text-align: center;
+}
+
+#datos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#datos> h2{
+    
+    margin: 5px 0;
+    font-size: 40px;
+}
+
+
+#plano{
+    position: relative;
+    width: 700px;
+    height: 700px;
+    background-color: aquamarine;
+}
+
+
+.pato{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+}
+
+#control{
+    display: flex;
+    justify-content: center;
+}
+
+#Start{
+    margin: 10px;
+    font-size: 30px;
+    background-color: lightgreen;
+    border: 2px solid green;
+    cursor: pointer;
+    
+}
+

@@ -4,11 +4,15 @@ function start(){
     const ronda = document.getElementById("numeroRonda")
 
     let patosVivos = 0
-    let tiempoAparicion = 1000
+    
+    
+    
     
     const intervalo = setInterval(() => {
+        
+        
 
-        if (patosVivos < 3) {
+        if (patosVivos < 4 ) {
 
             const nuevoPato = new Pato("Pato " + patosVivos);
             const patoVivo = nuevoPato.vida()
@@ -25,11 +29,17 @@ function start(){
             
             clearInterval(intervalo)
         }
+        
 
-    }, tiempoAparicion);
+    }, 500)
     
-
+    
 }
+
+
+
+
+
 
 class Pato{
     constructor(id){

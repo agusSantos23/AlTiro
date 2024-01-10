@@ -62,8 +62,9 @@ function start(){
             animalesVivos++
             animalesCreados++
             
-        }else {
-                                
+        }else {    
+            clearInterval(intervalo)
+
             derrota.classList.remove("ocultarperder")
             btnStar.style.display = "inline"
             animal.forEach(animal =>{
@@ -102,7 +103,7 @@ function start(){
                     
             } else {
                                 
-                
+                clearInterval(intervalo)
                 derrota.classList.remove("ocultarperder")
                 btnStar.style.display = "inline"
                 
@@ -137,7 +138,7 @@ function start(){
                     
             } else {
                                 
-                
+                clearInterval(intervalo)
                 derrota.classList.remove("ocultarperder")
                 btnStar.style.display = "inline"
                 

@@ -1,7 +1,7 @@
 function start(){
     const plano = document.getElementById("plano")
     const puntuacion = document.getElementById("puntuacion")
-    const ronda = document.getElementById("numeroRonda")
+    
 
     let patosVivos = 0
     
@@ -29,6 +29,7 @@ function start(){
             
             clearInterval(intervalo)
         }
+
         
 
     }, 500)

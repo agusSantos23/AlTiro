@@ -3,59 +3,80 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 50px;
-    background-color: rgb(78, 78, 78);
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    gap: 20px;
+    color: rgb(78, 78, 78);
 }
 
 
 h1,h3{
     text-align: center;
+    font-size: 30px;
+    margin: 0;
 }
 
 #datos{
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
 }
-
 #datos> h2{
     
-    margin: 5px 0;
-    font-size: 30px;
+    margin: 10px 0;
+    font-size: 40px;
 }
 
-
 #plano{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 700px;
     height: 700px;
     background-color: white;
 }
 
+#derrota{
+    font-size: 150px;
+    user-select: none;
+}
+.ocultarperder{
+    display: none;
+}
 
-.pato{
+
+.gallo{
+    background-image: url("img/svg/gallo.svg");
+}
+
+.tortuga{
+    background-image: url("img/svg/tortuga.svg");
+}
+
+.animal{
     width: 100px;
     height: 100px;
-    object-fit: cover;
+    background-size: cover;
     cursor: pointer;
     position: absolute;
-    left: 0px;
+    left: 0;
     bottom: 0;
 }
+
+
 
 #control{
     display: flex;
     justify-content: center;
 }
 
-#Start{
+.start{
     margin: 10px;
     font-size: 30px;
     background-color: lightgreen;
     border: 2px solid green;
     cursor: pointer;
-    
 }
 
+.start:active{
+    background-color: red;
+}

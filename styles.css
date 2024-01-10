@@ -37,20 +37,25 @@ h1,h3{
 
 #derrota{
     font-size: 150px;
-    user-select: none;
+    -webkit-user-select: none;
 }
 .ocultarperder{
     display: none;
 }
 
 
+.tortuga{
+    background-image: url("img/svg/tortuga.svg");
+}
+
 .gallo{
     background-image: url("img/svg/gallo.svg");
 }
 
-.tortuga{
-    background-image: url("img/svg/tortuga.svg");
+.conejo{
+    background-image: url("img/svg/conejo.svg");
 }
+
 
 .animal{
     width: 100px;

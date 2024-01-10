@@ -13,7 +13,7 @@ function start(){
     //saber cuantos se han mostrado
     let animalesCreados = 0
     //numero de la ronda
-    let rondaNumero = 0
+    let rondaNumero = 1
 
     
     //Eliminar los gallos de la partida anterior
@@ -34,83 +34,139 @@ function start(){
 
 
     
+   
+
+    const intervalo = setInterval(() => {
+            
+        if(puntuacion.textContent >=24){
     
-    
-    const intervalo1 = setInterval(() => {
-        
-        if (animalesVivos < 4 ) {
-                
+            clearInterval(intervalo)
+            rondaNumero++
+            ronda.textContent = rondaNumero
+            activarIntervalo2()
+        } 
+
+
+        if (animalesVivos < 5 ) {
+                    
             const nuevaTortuga = new Tortuga("Tortuga " + animalesCreados);
             const tortugaViva = nuevaTortuga.vida()
-                
+                    
             tortugaViva.addEventListener("click", () => {
                 nuevaTortuga.muerte(puntuacion)
                 animalesVivos--
             });
-                
+                    
+            
             plano.appendChild(tortugaViva)
             animalesVivos++
             animalesCreados++
-                
-        } else {
-                            
-            clearInterval(intervalo1)
+            
+        }else {
+                                
             derrota.classList.remove("ocultarperder")
             btnStar.style.display = "inline"
-            
+            animal.forEach(animal =>{
+                animal.remove()
+            })
         }
+            
+            
     }, 800)
+    
+    function activarIntervalo2(){
 
-
-    const intervalo2 = setInterval(() => {
+        const intervalo2 = setInterval(() => {
         
-        if (animalesVivos < 4 ) {
+            if(puntuacion.textContent >= 74){
+        
+                clearInterval(intervalo2)
+                rondaNumero++
+                ronda.textContent = rondaNumero
+                activarIntervalo3()
+            } 
+    
+            if (animalesVivos < 5 ) {
+                    
+                const nuevoGallo = new Gallo("Gallo " + animalesCreados);
+                const galloVivo = nuevoGallo.vida()
+                    
+                galloVivo.addEventListener("click", () => {
+                    nuevoGallo.muerte(puntuacion)
+                    animalesVivos--
+                });
+                    
+                plano.appendChild(galloVivo)
+                animalesVivos++
+                animalesCreados++
+                    
+            } else {
+                                
                 
-            const nuevoGallo = new Gallo("Gallo " + animalesCreados);
-            const galloVivo = nuevoGallo.vida()
+                derrota.classList.remove("ocultarperder")
+                btnStar.style.display = "inline"
                 
-            galloVivo.addEventListener("click", () => {
-                nuevoGallo.muerte(puntuacion)
-                animalesVivos--
-            });
+            }
+        }, 500)
+        
+    }
+    
+    function activarIntervalo3(){
+
+        const intervalo3 = setInterval(() => {
+        
+            if(puntuacion.textContent >= 149){
+        
+                clearInterval(intervalo3)
                 
-            plano.appendChild(galloVivo)
-            animalesVivos++
-            animalesCreados++
+            } 
+    
+            if (animalesVivos < 5 ) {
+                    
+                const nuevoGallo = new Conejo("Conejo " + animalesCreados);
+                const galloVivo = nuevoGallo.vida()
+                    
+                galloVivo.addEventListener("click", () => {
+                    nuevoGallo.muerte(puntuacion)
+                    animalesVivos--
+                });
+                    
+                plano.appendChild(galloVivo)
+                animalesVivos++
+                animalesCreados++
+                    
+            } else {
+                                
                 
-        } else {
-                            
-            clearInterval(intervalo2)
-            derrota.classList.remove("ocultarperder")
-            btnStar.style.display = "inline"
-            
-        }
-    }, 500)
+                derrota.classList.remove("ocultarperder")
+                btnStar.style.display = "inline"
+                
+            }
+        }, 350)
+        
+    }
 
 }
 
 
 
-
-
-//el animal que aparece con 2 funciones
+//el animal que aparece con 2 funciones: vida y muerte
 class Tortuga{
     constructor(id){
         this.id = id
     }
 
     vida() {
-        const imgEtiqueta = document.createElement("div");
+        const divEtiqueta = document.createElement("div");
         
-        imgEtiqueta.id = this.id
-        imgEtiqueta.classList = "animal tortuga"
+        divEtiqueta.id = this.id
+        divEtiqueta.classList = "animal tortuga"
+        
 
-         
+        divEtiqueta.style.left = Math.floor(Math.random()*600).toString() + "px"
+        divEtiqueta.style.bottom = Math.floor(Math.random()*600).toString() + "px"
 
-        imgEtiqueta.style.left = Math.floor(Math.random()*600).toString() + "px"
-        imgEtiqueta.style.bottom = Math.floor(Math.random()*600).toString() + "px"
-
-        return imgEtiqueta
+        return divEtiqueta
     }
 
     muerte(puntuacion) {
@@ -131,17 +187,17 @@ class Gallo{
     }
 
     vida() {
-        const imgEtiqueta = document.createElement("div");
+        const divEtiqueta = document.createElement("div");
         
-        imgEtiqueta.id = this.id
-        imgEtiqueta.classList = "animal gallo"
+        divEtiqueta.id = this.id
+        divEtiqueta.classList = "animal gallo"
 
          
 
-        imgEtiqueta.style.left = Math.floor(Math.random()*600).toString() + "px"
-        imgEtiqueta.style.bottom = Math.floor(Math.random()*600).toString() + "px"
+        divEtiqueta.style.left = Math.floor(Math.random()*600).toString() + "px"
+        divEtiqueta.style.bottom = Math.floor(Math.random()*600).toString() + "px"
 
-        return imgEtiqueta
+        return divEtiqueta
     }
 
     muerte(puntuacion) {
@@ -156,5 +212,34 @@ class Gallo{
     }
 }
 
+class Conejo{
+    constructor(id){
+        this.id = id
+    }
+
+    vida() {
+        const divEtiqueta = document.createElement("div");
+        
+        divEtiqueta.id = this.id
+        divEtiqueta.classList = "animal conejo"
+
+         
+        divEtiqueta.style.left = Math.floor(Math.random()*600).toString() + "px"
+        divEtiqueta.style.bottom = Math.floor(Math.random()*600).toString() + "px"
+
+        return divEtiqueta
+    }
+
+    muerte(puntuacion) {
+        const conejoElemento = document.querySelector(`[id="${this.id}"]`);
+        if (conejoElemento) {
+            conejoElemento.parentNode.removeChild(conejoElemento)
+
+            let numero = parseInt(puntuacion.textContent)
+            numero++
+            puntuacion.textContent = numero
+        }
+    }
+}
 
 

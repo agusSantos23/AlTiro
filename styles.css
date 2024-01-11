@@ -1,100 +1,205 @@
 @import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400;900&display=swap');
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    font-family: 'Tektur', sans-serif; 
-    font-weight: 900; 
+
+@media screen and (min-width:750px){
+        
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        font-family: 'Tektur', sans-serif; 
+        font-weight: 900; 
+    }
+
+    h1,h3{
+        text-align: center;
+        font-size: 30px;
+        margin: 0;
+        font-family: 'Tektur', sans-serif; 
+        font-weight: 400; 
+    }
+
+    b{
+        color:#E16428;
+    }
+
+    #datos{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #datos> h2{
+        
+        margin: 10px 0;
+        font-size: 40px;
+        -webkit-user-select: none;
+
+    }
+
+    #plano{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 700px;
+        height: 700px;
+        background-color: white;
+    }
+
+    #derrota{
+        font-size: 150px;
+        -webkit-user-select: none;
+        color: rgb(78, 78, 78);
+    }
+
+    .ocultarperder{
+        display: none;
+    }
+
+    .tortuga{
+        background-image: url("img/svg/tortuga.svg");
+    }
+
+    .gallo{
+        background-image: url("img/svg/gallo.svg");
+    }
+
+    .conejo{
+        background-image: url("img/svg/conejo.svg");
+    }
+
+    .animal{
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    #control{
+        display: flex;
+        justify-content: center;
+    }
+
+    .start{
+        margin: 10px;
+        padding: 10px;
+        font-size: 30px;
+        background-color: #ff7f44;
+        border: 2px solid #ac4c1f;
+        cursor: pointer;
+        font-family: 'Tektur', sans-serif; 
+        font-weight: 900; 
+    }
+
+    .start:active{
+        background-color: red;
+    }
 }
 
-
-h1,h3{
-    text-align: center;
-    font-size: 30px;
-    margin: 0;
-    font-family: 'Tektur', sans-serif; 
-    font-weight: 400; 
-}
-
-b{
-    color:#E16428;
-}
-
-#datos{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#datos> h2{
+@media screen and (max-width:750px) {
     
-    margin: 10px 0;
-    font-size: 40px;
-}
+        
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        font-family: 'Tektur', sans-serif; 
+        font-weight: 900; 
+    }
 
-#plano{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 700px;
-    height: 700px;
-    background-color: white;
-}
+    h1,h3{
+        text-align: center;
+        font-size: 30px;
+        margin: 0;
+        font-family: 'Tektur', sans-serif; 
+        font-weight: 400; 
+    }
 
-#derrota{
-    font-size: 150px;
-    -webkit-user-select: none;
-    color: rgb(78, 78, 78);
+    b{
+        color:#E16428;
+    }
 
-}
+    #datos{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+    }
+    #datos> h2{
+        
+        margin: 10px 0;
+        font-size: 30px;
+        -webkit-user-select: none;
 
+    }
 
-.ocultarperder{
-    display: none;
-}
+    #plano{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 340px;
+        height: 340px;
+        background-color: white;
+    }
 
+    #derrota{
+        font-size: 50px;
+        -webkit-user-select: none;
+        color: rgb(78, 78, 78);
+    }
 
-.tortuga{
-    background-image: url("img/svg/tortuga.svg");
-}
+    .ocultarperder{
+        display: none;
+    }
 
-.gallo{
-    background-image: url("img/svg/gallo.svg");
-}
+    .tortuga{
+        background-image: url("img/svg/tortuga.svg");
+    }
 
-.conejo{
-    background-image: url("img/svg/conejo.svg");
-}
+    .gallo{
+        background-image: url("img/svg/gallo.svg");
+    }
 
+    .conejo{
+        background-image: url("img/svg/conejo.svg");
+    }
 
-.animal{
-    width: 100px;
-    height: 100px;
-    background-size: cover;
-    cursor: pointer;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
+    .animal{
+        width: 75px;
+        height: 75px;
+        background-size: cover;
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
 
+    #control{
+        display: flex;
+        justify-content: center;
+    }
 
+    .start{
+        margin: 10px;
+        padding: 10px;
+        font-size: 30px;
+        background-color: #ff7f44;
+        border: 2px solid #ac4c1f;
+        cursor: pointer;
+        font-family: 'Tektur', sans-serif; 
+        font-weight: 900; 
+        margin-top: 100px;
+    }
 
-#control{
-    display: flex;
-    justify-content: center;
-}
-
-.start{
-    margin: 10px;
-    font-size: 30px;
-    background-color: lightgreen;
-    border: 2px solid green;
-    cursor: pointer;
-}
-
-.start:active{
-    background-color: red;
+    .start:active{
+        background-color: red;
+    }
 }

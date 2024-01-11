@@ -91,6 +91,7 @@ function start(){
         
                 clearInterval(intervalo3)
                 
+                win()
             } 
     
             if (animalesVivos < 5 ) {
@@ -120,32 +121,47 @@ function start(){
     function resetGame() {
         // Eliminar los animales de la partida anterior
         animal.forEach(animal => {
-            animal.remove();
+            animal.remove()
         });
     
         // Ocultar el mensaje de derrota
-        derrota.classList.add("ocultarperder");
+        derrota.classList.add("ocultarperder")
     
         // Reiniciar la puntuación
-        puntuacion.textContent = "0";
+        puntuacion.textContent = "0"
     
         // Desactivar el botón de inicio
-        btnStar.style.display = "none";
+        btnStar.style.display = "none"
     
         // Restablecer variables de control
-        animalesVivos = 0;
-        animalesCreados = 0;
-        rondaNumero = 1;
-        ronda.textContent = rondaNumero;
+        animalesVivos = 0
+        animalesCreados = 0
+        rondaNumero = 1
+        ronda.textContent = rondaNumero
     }
 
     function gameOver() {
         
-        derrota.classList.remove("ocultarperder");
-        btnStar.style.display = "inline";
+        derrota.classList.remove("ocultarperder")
+        btnStar.style.display = "inline"
         animal.forEach(animal => {
-            animal.remove();
+            animal.remove()
         });
+    }
+
+    function win(){
+        animal.forEach(animalElement => {
+            
+            animalElement.parentNode.removeChild(animalElement)
+        });
+    
+        derrota.textContent = "VICTORIA"
+        derrota.style.color = "#ffe344"
+        derrota.classList.remove("ocultarperder")
+        btnStar.style.display = "inline"
+        btnStar.style.backgroundColor = "#ffe344"
+        ronda.style.color = "#ffe344"
+        puntuacion.style.color = "#ffe344"
     }
 }
 
@@ -158,20 +174,28 @@ class Tortuga{
     }
 
     vida() {
-        const divEtiqueta = document.createElement("div");
+        const divEtiqueta = document.createElement("div")
         
         divEtiqueta.id = this.id
         divEtiqueta.classList = "animal tortuga"
         
+        const anchoPantalla = window.innerWidth
+        let ancho 
 
-        divEtiqueta.style.left = Math.floor(Math.random()*600).toString() + "px"
-        divEtiqueta.style.bottom = Math.floor(Math.random()*600).toString() + "px"
+        if(anchoPantalla > 750){
+            ancho = 600
+        }else{
+            ancho = 300
+        }
+
+        divEtiqueta.style.left = Math.floor(Math.random()*ancho).toString() + "px"
+        divEtiqueta.style.bottom = Math.floor(Math.random()*ancho).toString() + "px"
 
         return divEtiqueta
     }
 
     muerte(puntuacion) {
-        const tortugaElemento = document.querySelector(`[id="${this.id}"]`);
+        const tortugaElemento = document.querySelector(`[id="${this.id}"]`)
         if (tortugaElemento) {
             tortugaElemento.parentNode.removeChild(tortugaElemento)
 
@@ -193,10 +217,17 @@ class Gallo{
         divEtiqueta.id = this.id
         divEtiqueta.classList = "animal gallo"
 
-         
+        const anchoPantalla = window.innerWidth
+        let ancho 
 
-        divEtiqueta.style.left = Math.floor(Math.random()*600).toString() + "px"
-        divEtiqueta.style.bottom = Math.floor(Math.random()*600).toString() + "px"
+        if(anchoPantalla > 750){
+            ancho = 600
+        }else{
+            ancho = 300
+        }
+
+        divEtiqueta.style.left = Math.floor(Math.random()*ancho).toString() + "px"
+        divEtiqueta.style.bottom = Math.floor(Math.random()*ancho).toString() + "px"
 
         return divEtiqueta
     }
@@ -224,9 +255,17 @@ class Conejo{
         divEtiqueta.id = this.id
         divEtiqueta.classList = "animal conejo"
 
-         
-        divEtiqueta.style.left = Math.floor(Math.random()*600).toString() + "px"
-        divEtiqueta.style.bottom = Math.floor(Math.random()*600).toString() + "px"
+        const anchoPantalla = window.innerWidth
+        let ancho 
+
+        if(anchoPantalla > 750){
+            ancho = 600
+        }else{
+            ancho = 200
+        }
+
+        divEtiqueta.style.left = Math.floor(Math.random()*ancho).toString() + "px"
+        divEtiqueta.style.bottom = Math.floor(Math.random()*ancho).toString() + "px"
 
         return divEtiqueta
     }

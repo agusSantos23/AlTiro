@@ -8,37 +8,13 @@ function start(){
     const ronda = document.getElementById("ronda")
     const animal = document.querySelectorAll(".animal")
 
-    //saber cuantos gallos hay en pantalla
-    let animalesVivos = 0
-    //saber cuantos se han mostrado
-    let animalesCreados = 0
-    //numero de la ronda
-    let rondaNumero = 1
-
     
-    //Eliminar los gallos de la partida anterior
-    animal.forEach(animal =>{
-        animal.remove()
-    })
-    
-    //quitar el titulo de derrota
-    derrota.classList = "ocultarperder"
-    //resetear la puntuacion
-    puntuacion.textContent = "0"
-    
-    //desactiva el empezar la partida
-    btnStar.style.display = "none"
-    
-    
-
-
-
-    
-   
+    resetGame()
+  
 
     const intervalo = setInterval(() => {
             
-        if(puntuacion.textContent >=24){
+        if(animalesCreados >=25){
     
             clearInterval(intervalo)
             rondaNumero++
@@ -65,11 +41,7 @@ function start(){
         }else {    
             clearInterval(intervalo)
 
-            derrota.classList.remove("ocultarperder")
-            btnStar.style.display = "inline"
-            animal.forEach(animal =>{
-                animal.remove()
-            })
+            gameOver()
         }
             
             
@@ -79,7 +51,7 @@ function start(){
 
         const intervalo2 = setInterval(() => {
         
-            if(puntuacion.textContent >= 74){
+            if(animalesCreados >= 75){
         
                 clearInterval(intervalo2)
                 rondaNumero++
@@ -103,9 +75,8 @@ function start(){
                     
             } else {
                                 
-                clearInterval(intervalo)
-                derrota.classList.remove("ocultarperder")
-                btnStar.style.display = "inline"
+                clearInterval(intervalo2)
+                gameOver()
                 
             }
         }, 500)
@@ -116,7 +87,7 @@ function start(){
 
         const intervalo3 = setInterval(() => {
         
-            if(puntuacion.textContent >= 149){
+            if(animalesCreados >= 150){
         
                 clearInterval(intervalo3)
                 
@@ -138,15 +109,44 @@ function start(){
                     
             } else {
                                 
-                clearInterval(intervalo)
-                derrota.classList.remove("ocultarperder")
-                btnStar.style.display = "inline"
+                clearInterval(intervalo3)
+                gameOver()
                 
             }
         }, 350)
         
     }
 
+    function resetGame() {
+        // Eliminar los animales de la partida anterior
+        animal.forEach(animal => {
+            animal.remove();
+        });
+    
+        // Ocultar el mensaje de derrota
+        derrota.classList.add("ocultarperder");
+    
+        // Reiniciar la puntuación
+        puntuacion.textContent = "0";
+    
+        // Desactivar el botón de inicio
+        btnStar.style.display = "none";
+    
+        // Restablecer variables de control
+        animalesVivos = 0;
+        animalesCreados = 0;
+        rondaNumero = 1;
+        ronda.textContent = rondaNumero;
+    }
+
+    function gameOver() {
+        
+        derrota.classList.remove("ocultarperder");
+        btnStar.style.display = "inline";
+        animal.forEach(animal => {
+            animal.remove();
+        });
+    }
 }
 
 

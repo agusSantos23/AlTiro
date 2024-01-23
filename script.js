@@ -1,3 +1,5 @@
+let juego 
+
 
 //inicalizar el juego
 function start(){
@@ -8,7 +10,8 @@ function start(){
     const ronda = document.getElementById("ronda")
     const animal = document.querySelectorAll(".animal")
 
-    
+    juego = true;
+
     resetGame()
   
 
@@ -138,15 +141,19 @@ function start(){
         animalesCreados = 0
         rondaNumero = 1
         ronda.textContent = rondaNumero
+
+
+        
+
     }
 
     function gameOver() {
         
+        juego = false;
+
         derrota.classList.remove("ocultarperder")
         btnStar.style.display = "inline"
-        animal.forEach(animal => {
-            animal.remove()
-        });
+        
     }
 
     function win(){
@@ -183,7 +190,7 @@ class Tortuga{
         let ancho 
 
         if(anchoPantalla > 750){
-            ancho = 600
+            ancho = 500
         }else{
             ancho = 300
         }
@@ -200,7 +207,9 @@ class Tortuga{
             tortugaElemento.parentNode.removeChild(tortugaElemento)
 
             let numero = parseInt(puntuacion.textContent)
-            numero++
+            if(juego){
+                numero++
+            }
             puntuacion.textContent = numero
         }
     }
@@ -221,7 +230,7 @@ class Gallo{
         let ancho 
 
         if(anchoPantalla > 750){
-            ancho = 600
+            ancho = 500
         }else{
             ancho = 300
         }
@@ -238,7 +247,9 @@ class Gallo{
             galloElemento.parentNode.removeChild(galloElemento)
 
             let numero = parseInt(puntuacion.textContent)
-            numero++
+            if(juego){
+                numero++
+            }
             puntuacion.textContent = numero
         }
     }
@@ -259,7 +270,7 @@ class Conejo{
         let ancho 
 
         if(anchoPantalla > 750){
-            ancho = 600
+            ancho = 500
         }else{
             ancho = 200
         }
@@ -276,7 +287,9 @@ class Conejo{
             conejoElemento.parentNode.removeChild(conejoElemento)
 
             let numero = parseInt(puntuacion.textContent)
-            numero++
+            if(juego){
+                numero++
+            }
             puntuacion.textContent = numero
         }
     }
